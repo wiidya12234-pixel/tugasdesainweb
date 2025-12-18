@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>WS Floral Studio</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #ffffff;
+      color: #2b2b2b;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 30px 80px;
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
+      color: #8b2d2d;
+      font-weight: bold;
+      margin-right: 40px;
+    }
+
+    .logo img {
+      height: 100px;
+      display: block;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .menu a {
+      margin: 0;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 25px;
+      letter-spacing: 2px;
+      transition: color 0.18s ease, transform 0.18s ease;
+    }
+
+    .menu a:hover {
+      color: #8b2d2d;
+      transform: translateY(-3px);
+    }
+
+    .hamburger {
+      font-size: 26px;
+      color: #8b2d2d;
+      margin-left: auto;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      padding: 40px 80px;
+    }
+
+    .hero-text {
+      width: 50%;
+    }
+
+    /* Raise hero text to match the image and shift right */
+    .hero-text {
+      transform: translate(90px, -90px);
+    }
+
+    .welcome {
+      font-size: 35px;
+      margin-bottom: 6px;
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+
+    .hero-text h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 70px;
+      color: #8b2d2d;
+      margin-bottom: 10px;
+      letter-spacing: 3px;
+    }
+
+    .subtitle {
+      font-size: 37px;
+      border-bottom: 2px solid #8b2d2d;
+      display: inline-block;
+      margin-bottom: 25px;
+      padding-bottom: 5px;
+      letter-spacing: 3px;
+    }
+
+    .desc {
+      margin: 25px 0;
+      line-height: 1.8;
+      max-width: 750px;
+      letter-spacing: 1px;
+    }
+
+    .tagline {
+      font-weight: 600;
+      color: #8b2d2d;
+      margin-bottom: 30px;
+    }
+
+    /* Shift footer links to the right */
+    .footer-links {
+      margin-left: 120px;
+      /* increased to shift further right */
+    }
+
+    /* Button */
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #8b2d2d;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      border: 2px solid #8b2d2d;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: transparent;
+      color: #8b2d2d;
+    }
+
+    /* Image */
+    .hero-image {
+      width: 50%;
+
+      .footer-links {
+        margin-left: 0;
+      }
+
+      text-align: right;
+    }
+
+    .hero-image img {
+      max-width: 90%;
+      transform: translateY(-90px);
+    }
+
+    /* Bottom Line */
+    .bottom-line {
+      margin: -133px 80px;
+      height: 5px;
+      background: #8b2d2d;
+    }
+
+    /* Collections Title */
+    .collections-title {
+      font-family: "Playfair Display", serif;
+      font-size: 32px;
+      color: #8b2d2d;
+      text-align: center;
+      margin-bottom: 24px;
+      letter-spacing: 2px;
+      grid-column: 1 / -1;
+    }
+
+    /* Collections */
+    .collections {
+      padding: 60px 80px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 130px auto 40px;
+      /* moved down further */
+    }
+
+    .collection-card {
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+      border-radius: 8px;
+    }
+
+    .collection-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      height: auto;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .collection-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 20px;
+      color: #8b2d2d;
+      margin-bottom: 8px;
+    }
+
+    .collection-card p {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    .collection-card .card-btn {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 18px;
+      border-radius: 6px;
+      background: transparent;
+      color: #8b2d2d;
+      text-decoration: none;
+      border: 2px solid #8b2d2d;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .collection-card .card-btn:hover {
+      background: #8b2d2d;
+      color: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 20px;
+      }
+
+      .menu {
+        display: none;
+      }
+
+      .hero {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .hero-text,
+      .hero-image {
+        width: 100%;
+        text-align: center;
+        transform: none;
+      }
+
+      /* Reset image transform on mobile */
+      .hero-image img {
+        transform: none;
+      }
+
+      .hero-text h1 {
+        font-size: 38px;
+      }
+
+      .desc {
+        margin: 20px auto;
+      }
+
+      .bottom-line {
+        margin: 30px 20px;
+      }
+    }
+
+    /* Footer */
+    .footer {
+      background: #111;
+      color: #fff;
+      padding: 48px 80px 20px;
+      /* align with other sections */
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 0 0 80px;
+      /* shift container left */
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      padding: 0;
+    }
+
+    .footer-logo img {
+      width: 200px;
+      height: auto;
+    }
+
+    .footer-links,
+    .footer-contact,
+    .footer-social {
+      flex: 1 1 200px;
+    }
+
+    /* Lower footer columns slightly for visual alignment */
+    .footer-links,
+    .footer-contact,
+    .footer-social {
+      transform: translateY(30px);
+    }
+
+    .footer-links h4,
+    .footer-contact h4,
+    .footer-social h4 {
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .footer-links ul,
+    .footer-contact ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-links a,
+    .footer-contact a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.18s ease, transform 0.18s ease;
+      display: inline-block;
+    }
+
+    .footer-links ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-links a:hover {
+      color: #b7b7b7;
+      transform: translateX(4px);
+    }
+
+    .footer-social .social-icons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .footer-social .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #000000;
+      text-decoration: none;
+      font-size: 16px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .footer-social .social-icons a:hover {
+      background: #8b2d2d;
+      color: #fff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 14px 20px;
+      color: #fff;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .footer {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .footer-container {
+        margin: 0 20px;
+      }
+
+      .footer-logo {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo" />
+    </div>
+    <nav class="menu">
+      <a href="#hero">Beranda</a>
+      <a href="#collections">Koleksi</a>
+      <a href="#footer">Kontak</a>
+    </nav>
+    <div class="hamburger">☰</div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-text">
+      <p class="welcome">Selamat Datang</p>
+      <h1>WS Floral Studio</h1>
+      <p class="subtitle">Flowers Shop</p>
+
+      <p class="desc">
+        Kami menyediakan berbagai rangkaian bunga segar untuk menghadirkan
+        pengalaman terbaik bagi Anda. Segera miliki koleksi bunga kami dan
+        rasakan keindahan serta kualitas terbaik di setiap rangkaiannya.
+      </p>
+
+      <p class="tagline">Fresh Flowers for Every Moment</p>
+
+      <!-- GANTI NOMOR: ubah 082181327931 menjadi nomor tujuan tanpa + atau 0 -->
+      <a href="https://wa.me/082181327931?text=Halo%20saya%20mau%20memesan" class="btn" target="_blank"
+        rel="noopener">PESAN SEKARANG</a>
+    </div>
+
+    <div class="hero-image">
+      <!-- GANTI DENGAN GAMBAR KAMU -->
+      <img src="img\Konten.png" alt="Bouquet Flower" />
+    </div>
+  </section>
+
+  <!-- Garis Bawah -->
+  <div class="bottom-line"></div>
+
+  <!-- Collections -->
+  <section id="collections" class="collections">
+    <h2 class="collections-title">Our Collection</h2>
+    <div class="collection-card">
+      <img src="img\rose.jpeg" alt="Buket Classic" />
+      <h3>Rose Éclat</h3>
+      <p>
+        Perpaduan mawar segar dengan sentuhan modern yang memancarkan
+        keanggunan dan kehangatan.
+      </p>
+      <a href="produk1.html" class="card-btn">LIHAT PRODUK</a>
+    </div>
+
+    <div class="collection-card">
+      <img src="img\velvet.png" alt="Buket Modern" />
+      <h3>Velvet Bloom</h3>
+      <p>
+        Buket eksklusif dengan komposisi mewah, cocok untuk momen istimewa dan
+        berkesan.
+      </p>
+      <a href="produk2.html" class="card-btn">LIHAT PRODUK</a>
+    </div>
+
+    <div class="collection-card">
+      <img src="img\Seruni.jpeg" alt="Buket Premium" />
+      <h3>Buket Seruni</h3>
+      <p>
+        Rangkaian bunga cantik dengan desain sederhana yang elegan dan penuh
+        makna.
+      </p>
+      <a href="produk3.html" class="card-btn">LIHAT PRODUK</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer" id="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="img/logo.png" alt="Logo" class="footer-logo-img" />
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#hero">Beranda</a></li>
+          <li><a href="#collections">Koleksi</a></li>
+          <li><a href="#footer">Kontak</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <ul>
+          <li><a href="#">082181327931</a></li>
+          <li><a href="#">wsfloralstudio@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 WS Floral Studio. All rights reserved.</p>
+    </div>
+  </div>
+</body>
+
+</html>
